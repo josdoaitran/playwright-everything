@@ -1,3 +1,7 @@
+# Summary 
+2 ways to setup
+
+## Using local python
 - Reference Document: https://playwright.dev/python/docs/intro
 - Requirements:
     + We will use Python 3.
@@ -13,3 +17,12 @@
  - We can install via requirement.txt: `pip install -r requirements.txt` 
  )   
     + Install required browsers for Playwright: `playwright install`
+
+## Using Python virtual environment
+
+```
+python3 -m pip install --user virtualenv
+python3 -m venv venv
+source venv/bin/activate
+python3 -m pip install -r requirements.txt
+```
