@@ -21,3 +21,11 @@ python3 -m pip install -r requirements.txt
 
 ## Switch Python configuration on Pycharm
 Thank to Pycharm Interpreter feature, we can configure the proper Python Interpreter easily.
+
+## Check Playwright version after install on Python environment
+- Run this command: ```playwright --version```
+- Result:
+```angular2html
+❯ playwright --version
+Version 1.42.0/
+```
