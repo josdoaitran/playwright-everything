@@ -29,3 +29,11 @@ Thank to Pycharm Interpreter feature, we can configure the proper Python Interpr
 ❯ playwright --version
 Version 1.42.0/
 ```
+## Playwright install Browser:
+To install Playwright Chromenium, WebKit
+```angular2html
+Playwright install
+```
+# Basic Python Playwright
+
+## launch a browser with Synchronous and Asynchronous 
