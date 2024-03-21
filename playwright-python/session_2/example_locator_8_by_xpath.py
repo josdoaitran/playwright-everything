@@ -5,11 +5,11 @@ async def run(playwright: Playwright):
     chromium = playwright.chromium # or "firefox" or "webkit".
     browser = await chromium.launch(headless=False, slow_mo=500)
     page = await browser.new_page()
-    await page.goto("https://dev.to/")
+    await page.goto("https://bootswatch.com/default/")
 
-    ## Example get locator of element by test_id
-    test_id_example = page.get_by_test_id("main-nav")
-    await test_id_example.highlight()
+    ## Example get locator of element by Xpath
+    search_textbox_example = page.locator("xpath=//*[@id='navbarColor01']/form/input")
+    await search_textbox_example.highlight()
     await page.close()
 
 
