@@ -12,9 +12,6 @@ async def run(playwright: Playwright):
     await email_textbox.highlight()
     await browser.close()
 
-    ## Explain error with find locator by label
-    ## can not find the exact element
-    ## if having more than 1 element with same label attribute value
 
 
 async def main():

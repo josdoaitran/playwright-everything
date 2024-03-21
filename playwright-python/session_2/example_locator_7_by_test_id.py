@@ -5,11 +5,12 @@ async def run(playwright: Playwright):
     chromium = playwright.chromium # or "firefox" or "webkit".
     browser = await chromium.launch(headless=False, slow_mo=500)
     page = await browser.new_page()
-    await page.goto("https://parabank.parasoft.com/parabank/index.html")
+    await page.goto("https://dev.to/")
 
-    ## Example get locator of element by text
-    alt_text_example = page.get_by_alt_text("ParaBank")
-    await alt_text_example.highlight()
+    ## Example get locator of element by test_id
+    test_id_example = page.get_by_test_id("main-nav")
+    await test_id_example.highlight()
+    print(await test_id_example.text_content())
     await page.close()
 
 

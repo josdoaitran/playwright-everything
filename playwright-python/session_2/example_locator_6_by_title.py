@@ -8,8 +8,8 @@ async def run(playwright: Playwright):
     await page.goto("https://parabank.parasoft.com/parabank/index.html")
 
     ## Example get locator of element by text
-    alt_text_example = page.get_by_alt_text("ParaBank")
-    await alt_text_example.highlight()
+    title_example = page.get_by_title("ParaBank")
+    await title_example.highlight()
     await page.close()
 
 
