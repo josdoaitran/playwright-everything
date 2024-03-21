@@ -5,16 +5,12 @@ async def run(playwright: Playwright):
     chromium = playwright.chromium # or "firefox" or "webkit".
     browser = await chromium.launch(headless=False, slow_mo=500)
     page = await browser.new_page()
-    await page.goto("https://bootswatch.com/default/")
+    await page.goto("https://www.saucedemo.com/")
 
-    ## Example get locator of element by Label
-    email_textbox = page.get_by_label("Password")
-    await email_textbox.highlight()
-    await browser.close()
-
-    ## Explain error with find locator by label
-    ## can not find the exact element
-    ## if having more than 1 element with same label attribute value
+    ## Example get locator of element by text
+    text_example = page.get_by_text("Accepted usernames are:")
+    await text_example.highlight()
+    await page.close()
 
 
 async def main():

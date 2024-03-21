@@ -8,8 +8,12 @@ async def run(playwright: Playwright):
     await page.goto("https://www.saucedemo.com/")
 
     ## Example get locator of element by placeholder
-    username_label = page.get_by_placeholder("Username")
-    await username_label.highlight()
+    username_texbox = page.get_by_placeholder("Username")
+    await username_texbox.highlight()
+    await username_texbox.fill("testing4everyone")
+    password_textbox = page.get_by_placeholder("Password")
+    await password_textbox.highlight()
+    await password_textbox.fill("password of testing4everyone")
     await browser.close()
 
 
