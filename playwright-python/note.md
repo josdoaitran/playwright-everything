@@ -7,6 +7,7 @@
     + We will use Python 3.
     + Update pip by this command: `pip install --upgrade pip` 
     + Install `pytest-playwright` by this command: `pip install pytest-playwright`.
+    + Install `playwright` by this command: `pip install playwright`.
 or We can install via requirement.txt: `pip install -r requirements.txt`
     + Install required browsers for Playwright: `playwright install`
 
