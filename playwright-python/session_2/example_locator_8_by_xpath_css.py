@@ -12,7 +12,7 @@ async def run(playwright: Playwright):
     await search_textbox_example_1.highlight()
 
     ## Example get locator of element by CSS
-    search_textbox_example_2 = page.locator("css=div[id='navbarColor02']>form>input[placeholder='Search']")
+    search_textbox_example_2 = page.locator("css=div[id='navbarColor02']>form>input")
     await search_textbox_example_2.highlight()
     await page.close()
 
