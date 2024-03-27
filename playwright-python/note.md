@@ -37,4 +37,12 @@ Playwright install
 ```
 # Basic Python Playwright
 
-## launch a browser with Synchronous and Asynchronous 
+Using these sites to practice Playwright.
+
+- https://www.saucedemo.com/
+- https://ultimateqa.com/automation
+- https://bootswatch.com/ 
+
+## Session 1 - launch a browser with Synchronous and Asynchronous 
+## Session 2 - Locators with Python  Playwright
+## Session 3 - Basic Action
