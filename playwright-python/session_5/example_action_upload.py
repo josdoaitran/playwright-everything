@@ -15,14 +15,11 @@ async def run(playwright: Playwright):
     page = await browser.new_page()
     await page.set_viewport_size({"width": int(width), "height": int(height)})
 
-    await page.goto("https://demoqa.com/links")
-    # Click Me button
-    link_text = page.locator("//a[@id='simpleLink']")
+    await page.goto("https://demoqa.com/upload-download")
+    # https://playwright.dev/python/docs/input#upload-files
 
-    await link_text.highlight()
-    await expect(link_text).to_have_text("Home")
-    await link_text.click()
-
+    await page.locator("//input[@id='uploadFile']").set_input_files("./download_folder/sampleFile.jpeg")
+    await expect(page.locator("//p[@id='uploadedFilePath']")).to_contain_text("sampleFile.jpeg")
     await page.close()
 
 async def main():
