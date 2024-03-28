@@ -19,6 +19,10 @@ async def run(playwright: Playwright):
     # https://playwright.dev/python/docs/input#upload-files
 
     await page.locator("//input[@id='uploadFile']").set_input_files("./download_folder/sampleFile.jpeg")
+    # Remove all the selected files
+    await page.locator("//input[@id='uploadFile']").set_input_files([])
+    # Upload again
+    await page.locator("//input[@id='uploadFile']").set_input_files("./download_folder/sampleFile.jpeg")
     await expect(page.locator("//p[@id='uploadedFilePath']")).to_contain_text("sampleFile.jpeg")
     await page.close()
 
