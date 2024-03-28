@@ -20,6 +20,9 @@ source venv/bin/activate
 python3 -m pip install -r requirements.txt
 ```
 
+## Install Playwright
+Install Playwright via this command: `playwright install`
+
 ## Switch Python configuration on Pycharm
 Thank to Pycharm Interpreter feature, we can configure the proper Python Interpreter easily.
 
