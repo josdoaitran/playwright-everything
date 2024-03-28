@@ -15,14 +15,19 @@ async def run(playwright: Playwright):
     page = await browser.new_page()
     await page.set_viewport_size({"width": int(width), "height": int(height)})
 
-    await page.goto("https://demoqa.com/links")
-    # Click Me button
-    link_text = page.locator("//a[@id='simpleLink']")
+    await page.goto("https://demoqa.com/upload-download")
 
-    await link_text.highlight()
-    await expect(link_text).to_have_text("Home")
-    await link_text.click()
+    # https://playwright.dev/python/docs/downloads
 
+    # Start waiting for the download
+    async with page.expect_download() as download_info:
+        # Perform the action that initiates download
+        # Click Download button
+        await page.locator("//a[@id='downloadButton']").click()
+    download = await download_info.value
+
+    # Wait for the download process to complete and save the downloaded file somewhere
+    await download.save_as("./download_folder/" + download.suggested_filename)
     await page.close()
 
 async def main():
