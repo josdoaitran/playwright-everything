@@ -1,19 +1,15 @@
 import asyncio
-import tkinter
+import os
 
 from playwright.async_api import async_playwright, expect, Playwright
 
 async def run(playwright: Playwright):
-    app = tkinter.Tk()
-    width = app.winfo_screenwidth()
-    height = app.winfo_screenheight()
-    print("width=", width)
-    print("height=", height)
-
-    chromium = playwright.chromium # or "firefox" or "webkit".
-    browser = await chromium.launch(headless=False, slow_mo=500)
+    user_dir = 'tmp/playwright'
+    user_dir = os.path.join(os.getcwd(), user_dir)
+    chromium = playwright.chromium  # or "firefox" or "webkit".
+    browser = await chromium.launch_persistent_context(user_dir, headless=False, slow_mo=500,
+                                                       args=['--start-maximized'], no_viewport=True)
     page = await browser.new_page()
-    await page.set_viewport_size({"width": int(width), "height": int(height)})
 
     await page.goto("https://demoqa.com/upload-download")
     # https://playwright.dev/python/docs/input#upload-files
