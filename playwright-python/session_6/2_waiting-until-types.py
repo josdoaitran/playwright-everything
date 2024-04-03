@@ -25,10 +25,19 @@ with sync_playwright() as playwright:
     # print(f"Page is loaded  in {round(time_taken, 2)}")
 
     ## wait_until = commit => Send request to server and instantly receive response to do next
+    # print("=================================== START =======================================")
+    # start_time = perf_counter()
+    # # Load to page
+    # page.goto("https://demoqa.com/automation-practice-form", wait_until='commit')
+    # # Loaded
+    # time_taken = perf_counter() - start_time
+    # print(f"Page is loaded  in {round(time_taken, 2)}")
+
+    # wait_until = networkidle => wait untile network in browser idle
     print("=================================== START =======================================")
     start_time = perf_counter()
     # Load to page
-    page.goto("https://demoqa.com/automation-practice-form", wait_until='commit')
+    page.goto("https://demoqa.com/automation-practice-form", wait_until='networkidle')
     # Loaded
     time_taken = perf_counter() - start_time
     print(f"Page is loaded  in {round(time_taken, 2)}")
