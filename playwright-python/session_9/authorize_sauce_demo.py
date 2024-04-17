@@ -13,15 +13,17 @@ def delete_storage_file(file_path):
 with sync_playwright() as playwright:
     browser = playwright.firefox.launch(headless=False, slow_mo=500)
     context = browser.new_context()
-    page = browser.new_page()
+    page = context.new_page()
+    delete_storage_file("./auth/storage_stage.json")
 
     page.goto("https://www.saucedemo.com/")
     page.locator("//input[@id='user-name']").fill("standard_user")
     page.locator("//input[@id='password']").fill("secret_sauce")
     page.locator("//input[@id='login-button']").click()
     # Save the authentication value
-    delete_storage_file("./auth/storage_stage.json")
+    page.pause()
     context.storage_state(path="./auth/storage_stage.json")
+    context.close()
     print(page.url)
     page.close()
 

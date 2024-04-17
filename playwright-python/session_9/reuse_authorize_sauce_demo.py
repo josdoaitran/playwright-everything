@@ -24,4 +24,9 @@ with sync_playwright() as playwright:
 
     page.close()
 
+    # page.goto("https://www.canva.com/login/")
+    # page.locator("//span[contains(text(),'Continue with email')]").click()
+    # page.locator("//*[@id=':r4:']").fill("demo.testing4everyone@gmail.com")
+    # page.locator("//button[@type='submit']").click()
+
 
