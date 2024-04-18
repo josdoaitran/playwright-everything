@@ -1,6 +1,6 @@
 #  Save Storage Stage
 */storage_stage.json
-playwright-python/session_9/auth/storage_stage.json
+playwright-python/session_9/example_storage_stage/auth/storage_stage.json
 playwright-python/session_9/auto_check_gmail_box/auth/storage_stage.json
 # Igonored files
 .vscode
