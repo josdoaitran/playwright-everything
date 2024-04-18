@@ -15,12 +15,17 @@ with sync_playwright() as playwright:
     page = context.new_page()
     delete_storage_file("./auth/storage_stage.json")
 
-    page.goto("https://www.saucedemo.com/")
-    page.locator("//input[@id='user-name']").fill("standard_user")
-    page.locator("//input[@id='password']").fill("secret_sauce")
-    page.locator("//input[@id='login-button']").click()
-    # Save the authentication value
+    page.goto("https://accounts.google.com/")
+
+    email_value = os.environ['EMAIL']
+    page.locator("//input[@type='email']").fill(email_value)
+    page.locator("//*[@id='identifierNext']/div/button").click()
+
+    password_value = os.environ['PASSWORD']
+    page.locator("//input[@type='password']").fill(password_value)
+    page.locator("//*[@id='passwordNext']/div/button").click()
     page.pause()
+    #### Here is the
     context.storage_state(path="./auth/storage_stage.json")
     context.close()
     print(page.url)
