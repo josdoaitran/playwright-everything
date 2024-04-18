@@ -18,6 +18,8 @@ with sync_playwright() as playwright:
     page.pause()
     print(page.url)
     #Expect returned valeu will be: https://mail.google.com/mail/u/0/#inbox
+
+    # Now, we automatically check new mail to our mailbox
     page.close()
 
 
