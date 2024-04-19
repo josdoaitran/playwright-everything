@@ -1,3 +1,4 @@
 playwright
 pytest-playwright
 firefox
+pytest
