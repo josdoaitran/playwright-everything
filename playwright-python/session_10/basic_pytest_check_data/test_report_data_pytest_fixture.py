@@ -28,3 +28,9 @@ def test_report_data_value():
         data = json.load(file)
         assert "Passed" ==  data["status"]
         assert "2024-4-20 12-37-9" == data["timeStamp"]
+
+@pytest.fixture()
+def report_data():
+    GeneratingReport.generate_report()
+    with open("report.json") as file:
+        return json.load(file)
