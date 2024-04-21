@@ -30,8 +30,9 @@ def test_website_login_standard_user(page: Page):
     page.locator("//input[@id='user-name']").fill("standard_user")
     logger.info(msg="Input password")
     page.locator("//input[@id='password']").fill("secret_sauce")
-    page.locator("//input[@id='login-button']").click()
     logger.info(msg="Connect login")
+    page.locator("//input[@id='login-button']").click()
+    assert page.locator("//div[@class='app_logo']").is_visible()
     page.close()
 
 def test_website_login_performance_glitch_user(page: Page):
@@ -39,6 +40,7 @@ def test_website_login_performance_glitch_user(page: Page):
     page.locator("//input[@id='user-name']").fill("performance_glitch_user")
     logger.info(msg="Input password")
     page.locator("//input[@id='password']").fill("secret_sauce")
-    page.locator("//input[@id='login-button']").click()
     logger.info(msg="Connect login")
+    page.locator("//input[@id='login-button']").click()
+    assert page.locator("//div[@class='app_logo']").is_visible()
     page.close()
