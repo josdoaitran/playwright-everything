@@ -6,6 +6,15 @@ import logging
 logger = logging.getLogger('__Test Login__')
 logger.setLevel(logging.INFO)
 
+# configure igonore ssl
+# refer to: https://playwright.dev/python/docs/test-runners#ignore-https-errors
+@pytest.fixture(scope="session")
+def browser_context_args(browser_context_args):
+    return {
+        **browser_context_args,
+        "ignore_https_errors": True
+    }
+
 @pytest.fixture(scope="function", autouse=True)
 def set_up_browser(page: Page):
     logger.info(msg="Configure Our Project")
