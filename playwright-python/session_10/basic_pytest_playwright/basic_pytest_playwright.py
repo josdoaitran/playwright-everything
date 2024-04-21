@@ -6,20 +6,30 @@ import logging
 logger = logging.getLogger('__Test Login__')
 logger.setLevel(logging.INFO)
 
-@pytest.fixture()
-def page():
+@pytest.fixture(scope="function", autouse=True)
+def set_up_browser(page: Page):
     logger.info(msg="Configure Our Project")
-    playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=False, slow_mo=500)
-    return browser.new_page()
-
-
-def test_website(page: Page):
+    # playwright = sync_playwright().start()
+    # browser = playwright.chromium.launch(headless=False, slow_mo=500)
+    # page = browser.new_page()
     logger.info(msg="Open Browser")
     page.goto("https://www.saucedemo.com/")
+    yield
+
+def test_website_login_standard_user(page: Page):
     logger.info(msg="Input Username")
     page.locator("//input[@id='user-name']").fill("standard_user")
     logger.info(msg="Input password")
     page.locator("//input[@id='password']").fill("secret_sauce")
     page.locator("//input[@id='login-button']").click()
     logger.info(msg="Connect login")
+    page.close()
+
+def test_website_login_performance_glitch_user(page: Page):
+    logger.info(msg="Input Username")
+    page.locator("//input[@id='user-name']").fill("performance_glitch_user")
+    logger.info(msg="Input password")
+    page.locator("//input[@id='password']").fill("secret_sauce")
+    page.locator("//input[@id='login-button']").click()
+    logger.info(msg="Connect login")
+    page.close()
