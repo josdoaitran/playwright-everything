@@ -17,6 +17,6 @@ def test_example_sum_method():
     assert ExampleCode.sum(1, 2) == 3
     assert ExampleCode.sum(1, 1) == 2
     assert ExampleCode.sum(1, 0) == 1
-    assert ExampleCode.sum(1, -1) == 0
+    assert ExampleCode.sum(1, -1) == 1
 
 
