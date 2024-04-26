@@ -1,20 +1,15 @@
 from playwright.sync_api import Page, Browser
 import logging
-import os
+import pytest
 
 # Create a named logger
 logger = logging.getLogger('__Test Login__')
 logger.setLevel(logging.INFO)
 
 # configure igonore ssl
-# refer to: https://playwright.dev/python/docs/test-runners#ignore-https-errors
+# refer to: https://playwright.dev/python/docs/test-runners
 
-
-def test_website_login_standard_user(browser: Browser):
-    context = browser.new_context(
-        record_video_dir="video/"
-    )
-    page = context.new_page()
+def test_website_login_standard_user(page: Page):
     page.goto("https://www.saucedemo.com/")
     logger.info(msg="Input Username")
     page.locator("//input[@id='user-name']").fill("standard_user")
@@ -25,11 +20,7 @@ def test_website_login_standard_user(browser: Browser):
     assert page.locator("//div[@class='app_logo']").is_visible()
     # set_up_page.close()
 
-def test_website_login_performance_glitch_user(browser: Browser):
-    context = browser.new_context(
-        record_video_dir="video/"
-    )
-    page = context.new_page()
+def test_website_login_performance_glitch_user(page: Page):
     page.goto("https://www.saucedemo.com/")
     logger.info(msg="Input Username")
     page.locator("//input[@id='user-name']").fill("performance_glitch_user")
