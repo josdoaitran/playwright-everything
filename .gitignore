@@ -7,8 +7,8 @@
 .idea
 /.idea/*
 /target/*
-/screen_shoot/*
-*/screen_shoot/*
+/screenshoot/*
+*/screenshoot/*
 /video/*
 */video/*
 */tmp/*
