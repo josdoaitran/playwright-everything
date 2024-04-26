@@ -7,6 +7,7 @@
 .idea
 /.idea/*
 /target/*
+*/trace.zip
 */reports/*
 */test-results/*
 playwright-python/reports/
