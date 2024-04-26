@@ -7,8 +7,9 @@
 .idea
 /.idea/*
 /target/*
-/reports/*
+*/reports/*
 */test-results/*
+playwright-python/reports/
 playwright-python/session_12/basic_record_video/test-results/
 /screenshoot/*
 */screenshoot/*
