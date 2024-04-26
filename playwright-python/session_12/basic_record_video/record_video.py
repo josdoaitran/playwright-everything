@@ -1,6 +1,5 @@
 from playwright.sync_api import Page, Browser
 import logging
-import pytest
 
 # Create a named logger
 logger = logging.getLogger('__Test Login__')
@@ -18,7 +17,6 @@ def test_website_login_standard_user(page: Page):
     logger.info(msg="Connect login")
     page.locator("//input[@id='login-button']").click()
     assert page.locator("//div[@class='app_logo']").is_visible()
-    # set_up_page.close()
 
 def test_website_login_performance_glitch_user(page: Page):
     page.goto("https://www.saucedemo.com/")
@@ -28,5 +26,5 @@ def test_website_login_performance_glitch_user(page: Page):
     page.locator("//input[@id='password']").fill("secret_sauce")
     logger.info(msg="Connect login")
     page.locator("//input[@id='login-button']").click()
-    assert page.locator("//div[@class='app_logo']").is_visible()
-    # set_up_page.close()
+    assert page.locator("//a[@class='shopping_cart_link']").is_visible()
+

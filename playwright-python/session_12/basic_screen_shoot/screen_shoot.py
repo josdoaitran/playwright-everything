@@ -53,11 +53,11 @@ def test_website_login_standard_user(set_up_page: Page):
 def test_website_login_performance_glitch_user(set_up_page: Page):
     delete_storage_file("./screenshoot/website_login_performance_glitch_use.png")
     logger.info(msg="Input Username")
-    set_up_page.locator("//input[@id='user-name']").fill("performance_glitch_user")
+    page.locator("//input[@id='user-name']").fill("performance_glitch_user")
     logger.info(msg="Input password")
-    set_up_page.locator("//input[@id='password']").fill("secret_sauce")
+    page.locator("//input[@id='password']").fill("secret_sauce")
     logger.info(msg="Connect login")
-    set_up_page.locator("//input[@id='login-button']").click()
-    assert set_up_page.locator("//div[@class='app_logo']").is_visible()
+    page.locator("//input[@id='login-button']").click()
+    assert page.locator("//a[@class='shopping_cart_link']").is_visible()
     set_up_page.screenshot(path="./screenshoot/website_login_performance_glitch_use.png", full_page=True)
-    # set_up_page.close()
+
