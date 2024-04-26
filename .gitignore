@@ -8,7 +8,9 @@
 /.idea/*
 /target/*
 /screen_shoot/*
+*/screen_shoot/*
 /video/*
+*/video/*
 */tmp/*
 */tmp
 # Byte-compiled / optimized / DLL files
