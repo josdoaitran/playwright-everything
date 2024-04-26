@@ -9,6 +9,7 @@
 /target/*
 /screenshoot/*
 */screenshoot/*
+playwright-python/session_12/basic_screen_shoot/screenshoot/
 /video/*
 */video/*
 */tmp/*
