@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, BrowserContext
+from playwright.sync_api import Page
 import logging
 import pytest
 
@@ -8,19 +8,6 @@ logger.setLevel(logging.INFO)
 
 # configure igonore ssl
 # refer to: https://playwright.dev/python/docs/test-runners
-
-
-@pytest.fixture(autouse=True)
-def trace_test_script(context: BrowserContext):
-    context.tracing.start(
-        name="playwright",
-        screenshots=True,
-        snapshots=True,
-        sources=True,
-        title=True,
-    )
-    yield
-    context.tracing.stop(path="trace.zip")
 
 def test_website_login_standard_user(page: Page):
     page.goto("https://www.saucedemo.com/")

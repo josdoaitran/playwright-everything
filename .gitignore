@@ -8,6 +8,7 @@
 /.idea/*
 /target/*
 */trace.zip
+playwright-python/session_12/basic_trace/trace.zip
 */reports/*
 */test-results/*
 playwright-python/reports/
