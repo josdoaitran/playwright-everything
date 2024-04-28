@@ -18,6 +18,7 @@ def test_website_login_standard_user(page: Page):
     logger.info(msg="Connect login")
     page.locator("//input[@id='login-button']").click()
     assert page.locator("//div[@class='app_logo']").is_visible()
+    page.pause()
 
 def test_website_login_performance_glitch_user(page: Page):
     page.goto("https://www.saucedemo.com/")
@@ -28,4 +29,5 @@ def test_website_login_performance_glitch_user(page: Page):
     logger.info(msg="Connect login")
     page.locator("//input[@id='login-button']").click()
     assert page.locator("//a[@class='shopping_cart_link']").is_visible()
+    page.pause()
 
