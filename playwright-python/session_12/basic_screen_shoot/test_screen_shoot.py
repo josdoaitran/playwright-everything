@@ -25,25 +25,30 @@ def set_up_page(page: Page):
     logger.info(msg="Close Browser")
     page.close()
 
-def test_website_login_standard_user(set_up_page: Page):
+# https://playwright.dev/python/docs/screenshots
+def test_website_login_standard_user(page: Page):
     delete_storage_file("./screenshoot/website_login_standard_user.png")
+    page.goto("https://www.saucedemo.com/")
     logger.info(msg="Input Username")
-    set_up_page.locator("//input[@id='user-name']").fill("standard_user")
+    page.locator("//input[@id='user-name']").fill("standard_user")
     logger.info(msg="Input password")
-    set_up_page.locator("//input[@id='password']").fill("secret_sauce")
+    page.locator("//input[@id='password']").fill("secret_sauce")
     logger.info(msg="Connect login")
-    set_up_page.locator("//input[@id='login-button']").click()
-    assert set_up_page.locator("//div[@class='app_logo']").is_visible()
-    set_up_page.screenshot(path="./screenshoot/website_login_standard_user.png")
+    page.locator("//input[@id='login-button']").click()
+    assert page.locator("//div[@class='app_logo']").is_visible()
+    page.pause()
+    # page.screenshot(path="./screenshoot/website_login_standard_user.png")
 
-def test_website_login_performance_glitch_user(set_up_page: Page):
+def test_website_login_performance_glitch_user(page: Page):
     delete_storage_file("./screenshoot/website_login_performance_glitch_use.png")
+    page.goto("https://www.saucedemo.com/")
     logger.info(msg="Input Username")
-    set_up_page.locator("//input[@id='user-name']").fill("performance_glitch_user")
+    page.locator("//input[@id='user-name1']").fill("performance_glitch_user")
     logger.info(msg="Input password")
-    set_up_page.locator("//input[@id='password']").fill("secret_sauce")
+    page.locator("//input[@id='password']").fill("secret_sauce")
     logger.info(msg="Connect login")
-    set_up_page.locator("//input[@id='login-button']").click()
-    assert set_up_page.locator("//a[@class='shopping_cart_link']").is_visible()
-    set_up_page.screenshot(path="./screenshoot/website_login_performance_glitch_use.png", full_page=True)
+    page.locator("//input[@id='login-button']").click()
+    assert page.locator("//a[@class='shopping_cart_link']").is_visible()
+    page.pause()
+    # page.screenshot(path="./screenshoot/website_login_performance_glitch_use.png", full_page=True)
 
