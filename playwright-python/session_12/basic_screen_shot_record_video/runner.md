@@ -1,0 +1,1 @@
+-s -v --headed --html=test-results/report.html --capture=tee-sys --screenshot on
