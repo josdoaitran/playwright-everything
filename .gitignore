@@ -9,13 +9,15 @@
 /target/*
 */trace.zip
 playwright-python/session_12/basic_trace/trace.zip
+playwright-python/session_12/basic_screen_shot/test-results/*
+playwright-python/session_12/basic_screen_shot/test-results
 */reports/*
 */test-results/*
 playwright-python/reports/
 playwright-python/session_12/basic_record_video/test-results/
 /screenshoot/*
 */screenshoot/*
-playwright-python/session_12/basic_screen_shoot/screenshoot/
+playwright-python/session_12/basic_screen_shot/screenshoot/
 /video/*
 */video/*
 */tmp/*
