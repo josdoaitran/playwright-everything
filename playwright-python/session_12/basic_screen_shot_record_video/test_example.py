@@ -30,7 +30,7 @@ def test_website_login_performance_glitch_user(page) -> None:
     # delete_storage_file("./screenshot/website_login_performance_glitch_use.png")
     page.goto("https://www.saucedemo.com/")
     logger.info(msg="Input Username")
-    username = page.locator("//input[@id='user-name1']")
+    username = page.locator("//input[@id='user-name']")
     username.wait_for(timeout=1500)
     username.fill("performance_glitch_user")
     logger.info(msg="Input password")
