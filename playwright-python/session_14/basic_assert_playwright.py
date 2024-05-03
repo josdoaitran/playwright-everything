@@ -40,10 +40,26 @@ def test_website_login_standard_user(page: Page):
     expect(password_title).to_have_css("font-size", "16px")
     expect(password_title).to_have_css("font-family", "\"DM Mono\", \"sans-serif\"")
 
-    # logger.info(msg="Input password")
-    # page.locator("//input[@id='password']").fill("secret_sauce")
-    # logger.info(msg="Click login")
+    logger.info(msg="============== Assert Textbox =============")
+    password = page.locator("//input[@id='password']")
+    password.fill("secret_sauce")
+    expect(password).to_have_value("secret_sauce")
+    password.clear()
+    expect(password).to_have_value("")
+
+    logger.info(msg="============== Assert More attribute of Element =============")
     login_button = page.locator("//input[@id='login-button']")
     expect(login_button).to_have_class("submit-button btn_action")
+    expect(login_button).to_have_attribute('data-test', 'login-button')
+
+
+    # Verify checkbox: checked or not checked
+    logger.info(msg="============== Assert Checkbox Element =============")
+    page.goto("https://fs2.formsite.com/meherpavan/form2/index.html?1537702596407")
+    # Example Click
+    male_checkbox = page.locator("//*[@id='q26']//tr[1]//label")
+    male_checkbox.highlight()
+    male_checkbox.check()
+    expect(male_checkbox).to_be_checked()
 
 

@@ -24,13 +24,13 @@ def test_website_login_standard_user(page) -> None:
     page.locator("//input[@id='login-button']").click()
     assert page.locator("//div[@class='app_logo']").is_visible()
     # page.pause()
-    page.screenshot(path="./screenshot/website_login_standard_user.png")
+    # page.screenshot(path="./screenshot/website_login_standard_user.png")
 
 def test_website_login_performance_glitch_user(page) -> None:
     # delete_storage_file("./screenshot/website_login_performance_glitch_use.png")
     page.goto("https://www.saucedemo.com/")
     logger.info(msg="Input Username")
-    username = page.locator("//input[@id='user-name']")
+    username = page.locator("//input[@id='user-name1']")
     username.wait_for(timeout=1500)
     username.fill("performance_glitch_user")
     logger.info(msg="Input password")
@@ -39,5 +39,5 @@ def test_website_login_performance_glitch_user(page) -> None:
     page.locator("//input[@id='login-button']").click()
     assert page.locator("//a[@class='shopping_cart_link']").is_visible()
     # page.pause()
-    page.screenshot(path="./screenshot/website_login_performance_glitch_use.png", full_page=True)
+    # page.screenshot(path="./screenshot/website_login_performance_glitch_use.png", full_page=True)
 
