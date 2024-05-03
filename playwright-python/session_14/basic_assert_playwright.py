@@ -58,7 +58,7 @@ def test_website_login_standard_user(page: Page):
     page.goto("https://fs2.formsite.com/meherpavan/form2/index.html?1537702596407")
     # Example Click
     male_checkbox = page.locator("//*[@id='q26']//tr[1]//label")
-    male_checkbox.highlight()
+    expect(male_checkbox).not_to_be_checked()
     male_checkbox.check()
     expect(male_checkbox).to_be_checked()
 
