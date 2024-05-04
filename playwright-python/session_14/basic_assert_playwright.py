@@ -10,7 +10,7 @@ def test_website_login_standard_user(page: Page):
     logger.info(msg="============== Assert url =============")
     logger.info(page.url)
     assert page.url == BASE_URL
-    expect (page).to_have_url(BASE_URL)
+    expect(page).to_have_url(BASE_URL)
     logger.info("Current Title `%s`", page.title())
     expect(page).to_have_title("Swag Labs")
 
@@ -38,6 +38,7 @@ def test_website_login_standard_user(page: Page):
     logger.info(msg="============== Assert CSS of Element =============")
     expect(password_title).to_have_css("color", "rgb(255, 255, 255)")
     expect(password_title).to_have_css("font-size", "16px")
+    expect(password_title).to_have_css("line-height", "20px")
     expect(password_title).to_have_css("font-family", "\"DM Mono\", \"sans-serif\"")
 
     logger.info(msg="============== Assert Textbox =============")
