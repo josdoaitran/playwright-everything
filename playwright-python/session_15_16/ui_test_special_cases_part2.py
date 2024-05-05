@@ -9,7 +9,6 @@ from playwright.sync_api import Page, expect
 def test_load_deplay_example(page: Page):
     page.goto("https://katalon.com/katalon-platform")
     page.locator("//button[@id='onetrust-accept-btn-handler']").click()
-    page.mouse.down()
     onboarding_hub_link = page.get_by_role("link", name = "Onboarding Hub")
     onboarding_hub_link.scroll_into_view_if_needed(timeout=5000)
     onboarding_hub_link.click()
