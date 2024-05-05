@@ -31,3 +31,35 @@ def test_load_scroll_to_element_example_2(page: Page):
     social_google.click()
 
 
+# 8. Dynamic Tables
+#  http://www.uitestingplayground.com/dynamictable
+
+def test_elements_dynamic_table_example(page: Page):
+    page.goto("http://www.uitestingplayground.com/dynamictable")
+    comparable_text = page.locator("p.bg-warning").inner_text()
+    cpu_comparable_text = comparable_text.split()[-1]
+    print(cpu_comparable_text)
+
+    cpu_column = None
+    column_header = page.get_by_role("columnheader")
+    for index in range(column_header.count()):
+
+        if (column_header.nth(index).inner_text() == 'CPU'):
+            cpu_column = index
+            break
+    assert cpu_column is not None
+
+    chrome_row = None
+    list_of_row = page.get_by_role("rowgroup").last.get_by_role("row")
+    # chrome_row = list_of_row.filter(has_text="Chrome")
+
+    for row in range(list_of_row.count()):
+        list_of_cell = list_of_row.nth(row).get_by_role("cell")
+        for cell in range(list_of_cell.count()):
+            if list_of_cell.nth(cell).inner_text() == 'Chrome':
+                chrome_row = list_of_row.nth(row)
+                break
+
+    # assert chrome_row is not None
+    chrome_cpu = chrome_row.get_by_role("cell").nth(cpu_column)
+    expect(chrome_cpu).to_have_text(cpu_comparable_text)
