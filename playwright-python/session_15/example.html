@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .country {
+            background-color: black;
+            color: white;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+<h2 class="country">CHINA</h2>
+
+<p>
+    China has the largest population
+    in the world.
+</p>
+
+<h2 class="country">INDIA</h2>
+
+<p>
+    India has the second largest
+    population in the world.
+</p>
+
+<h2 class="country">UNITED STATES</h2>
+<p>
+    United States has the third largest
+    population in the world.
+</p>
+<div class="d-grid gap-2 d-md-block">
+    <button class="btn btn-primary" type="button">Button</button>
+    <button class="btn btn-success" type="button">Button</button>
+</div>
+<script>
+    function ClickEventHandler(event) {
+        if (("" + event.target.className).indexOf("btn-primary") != -1) {
+            alert("Primary button pressed");
+        }
+        if (("" + event.target.className).indexOf("btn-success") != -1) {
+            alert("Success button pressed");
+        }
+    }
+    document.body.addEventListener('click', ClickEventHandler, true);
+</script>
+</body>
