@@ -6,7 +6,7 @@ from playwright.sync_api import Page, expect
 
 # 3. Test load delay until element is ready
 # Example: https://katalon.com/katalon-platform
-def test_load_deplay_example(page: Page):
+def test_load_delay_example(page: Page):
     page.goto("https://katalon.com/katalon-platform")
     page.locator("//button[@id='onetrust-accept-btn-handler']").click()
     onboarding_hub_link = page.get_by_role("link", name = "Onboarding Hub")
