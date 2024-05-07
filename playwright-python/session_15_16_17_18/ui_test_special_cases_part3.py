@@ -63,3 +63,17 @@ def test_elements_dynamic_table_example(page: Page):
     # assert chrome_row is not None
     chrome_cpu = chrome_row.get_by_role("cell").nth(cpu_column)
     expect(chrome_cpu).to_have_text(cpu_comparable_text)
+
+# 8. Special Cases in Verifying text of element
+#  http://www.uitestingplayground.com/verifytext
+
+def test_special_case_verify_text(page: Page):
+    page.goto("http://www.uitestingplayground.com/verifytext")
+    # Normal case
+    title = page.locator("//h3")
+    expect(title).to_have_text("Verify Text")
+    # Special Case => Using get_by_text to get Elements
+
+    content_to_verify = "Welcome UserName!"
+    text_verify = page.locator("//div[@class='bg-primary']").get_by_text("Welcome")
+    expect(text_verify).to_have_text(content_to_verify)

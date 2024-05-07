@@ -14,7 +14,7 @@ def test_load_delay_example(page: Page):
     onboarding_hub_link.click()
 
     social_google = page.locator("//*[@id='social-google']")
-    # expect(social_google).to_be_visible(timeout=3000)
+    expect(social_google).to_be_visible(timeout=5000)
     social_google.click()
 
 # 4. Test wait for ajax data or data from backend
