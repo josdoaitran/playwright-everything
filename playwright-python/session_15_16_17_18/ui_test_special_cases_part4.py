@@ -69,4 +69,13 @@ def test_visibility(page: Page):
     # Case: element.style {position: absolute; left: -9999px;} => Element has css => ("position", "absolute")
     expect(offscreen_btn).to_have_css("position", "absolute")
 
-
+# 12. Test Sample App - Login Authentication
+# Example: http://www.uitestingplayground.com/sampleapp
+def test_login_verify_login_success(page: Page):
+    page.goto("http://www.uitestingplayground.com/sampleapp")
+    username = 'testing4everyone'
+    password = 'pwd'
+    page.locator("//input[@name='UserName']").fill(username)
+    page.locator("//input[@name='Password']").fill(password)
+    page.locator("button.btn-primary").click()
+    expect(page.locator("//label[@class='text-success']")).to_have_text(f"Welcome, {username}!")
