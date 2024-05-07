@@ -1,4 +1,6 @@
 # UI Testing Spacial Case
+import time
+
 from playwright.sync_api import Page, expect
 import pytest
 
@@ -35,3 +37,18 @@ def test_example_overlapped_element(page: Page):
     name_text_bot.fill("Testing4Everyone")
     expect(name_text_bot).to_have_value("Testing4Everyone")
 
+# 16. Shadow DOM
+# http://www.uitestingplayground.com/shadowdom
+def test_example_shadown_dom(page: Page):
+    page.goto("http://www.uitestingplayground.com/shadowdom")
+    # page.frame_locator("//guid-generator").locator("//button[@id='buttonGenerate']").first.click()
+    page.locator("guid-generator .edit-field").fill("1234567890")
+    page.locator("guid-generator .button-generate").click(timeout=3000)
+    page.locator("guid-generator .button-copy").click(timeout=3000)
+    time.sleep(5)
+
+    page.goto("https://books-pwakit.appspot.com/")
+    page.locator("book-app[apptitle='BOOKS'] #input").fill("Testing4Everyone")
+    text = page.locator("book-app[apptitle='BOOKS'] .books-desc").text_content()
+    print(text)
+    time.sleep(5)
