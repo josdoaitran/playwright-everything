@@ -1,8 +1,7 @@
-# Overview:
+# Overview
+This repository is to collect all guides that I am posting and sharing in my personal posts and testing4everyone channels.
 - Official link about Playwright: https://playwright.dev/
-- What Playwright is supprting to cover automation test:
-+ Web application.
-+ API testing.
+- What Playwright is supporting to cover automation test: Web application. API testing.
 
 # Get started with Playwright:
 - Installation: https://playwright.dev/docs/intro
