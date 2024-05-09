@@ -52,3 +52,18 @@ def test_example_shadown_dom(page: Page):
     text = page.locator("book-app[apptitle='BOOKS'] .books-desc").text_content()
     print(text)
     time.sleep(5)
+
+# 17. iframe example
+# Example: https://ui.vision/demo/webtest/frames/
+# Example: https://the-internet.herokuapp.com/iframe
+def test_iframe_example(page: Page):
+    page.goto("https://ui.vision/demo/webtest/frames/")
+    textbox = page.frame_locator("//*[@src='frame_1.html']").locator('//input')
+    textbox.fill("Testing4Everyone")
+    page.pause()
+
+    page.goto("https://the-internet.herokuapp.com/iframe")
+    email_textbox = page.frame_locator('//*[@id="mce_0_ifr"]').locator('//body')
+    email_textbox.click(timeout=1500)
+    email_textbox.fill(" Testing4Everyone", timeout=1500)
+    page.pause()
