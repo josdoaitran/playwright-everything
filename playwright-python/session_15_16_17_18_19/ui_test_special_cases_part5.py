@@ -18,7 +18,9 @@ def test_example_mouse_over(page: Page):
 def test_example_non_breaking_space(page: Page):
     page.goto("http://www.uitestingplayground.com/nbsp")
     # page.locator("//button[text()='My Button']").click(timeout=2000)
-    page.locator("//button[text()='My&nbsp;Button']").click(timeout=2000)
+    # https://en.wikipedia.org/wiki/Non-breaking_space
+    page.locator("//button[text()='My\u00A0Button']").click(timeout=2000)
+
 
 # 15. Overlapped element
 # http://www.uitestingplayground.com/overlapped
