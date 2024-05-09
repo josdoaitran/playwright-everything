@@ -5,6 +5,10 @@ from playwright.sync_api import Page
 logger = logging.getLogger('__Test Login__')
 logger.setLevel(logging.INFO)
 
+# Run test cases ordered / selected by browser types
+# @pytest.mark.skip_browser("firefox")
+# @pytest.mark.only_browser("firefox")
+# -s -v  --headed --html=./report-results/report.html --capture=tee-sys --browser=firefox
 @pytest.fixture(scope="function", autouse=True)
 def set_up_page(page: Page):
     logger.info(msg="Open Browser")
