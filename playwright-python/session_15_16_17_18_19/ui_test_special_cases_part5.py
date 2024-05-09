@@ -27,7 +27,7 @@ def test_example_non_breaking_space(page: Page):
 def test_example_overlapped_element(page: Page):
     page.goto("http://www.uitestingplayground.com/overlapped")
     name_text_bot = page.get_by_placeholder("Name")
-    # name_text_bot.scroll_into_view_if_needed()
+    # name_text_bot.scroll_into_view_if_needed(timeout=2000)
     # name_text_bot.fill("Testing4Everyone")
     # expect(name_text_bot).to_have_value("Testing4Everyone")
 
@@ -51,8 +51,6 @@ def test_example_shadown_dom(page: Page):
 
     page.goto("https://books-pwakit.appspot.com/")
     page.locator("book-app[apptitle='BOOKS'] #input").fill("Testing4Everyone")
-    text = page.locator("book-app[apptitle='BOOKS'] .books-desc").text_content()
-    print(text)
     time.sleep(5)
 
 # 17. iframe example
@@ -65,6 +63,7 @@ def test_iframe_example(page: Page):
     page.pause()
 
     page.goto("https://the-internet.herokuapp.com/iframe")
+    page.locator("//body[@id='tinymce']").click(timeout=2000)
     email_textbox = page.frame_locator('//*[@id="mce_0_ifr"]').locator('//body')
     email_textbox.click(timeout=1500)
     email_textbox.fill(" Testing4Everyone", timeout=1500)
