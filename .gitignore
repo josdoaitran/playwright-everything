@@ -10,6 +10,7 @@
 */report-results/*
 */report-results
 playwright-python/session_20/report-results/*
+playwright-python/session_20/report-results
 */trace.zip
 playwright-python/session_12/basic_trace/trace.zip
 playwright-python/session_12/basic_screen_shot_record_video/test-results/*
