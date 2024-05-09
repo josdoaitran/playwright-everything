@@ -25,17 +25,23 @@ def browser_context_args(browser_context_args):
         "storage_state": "./auth/storage_stage.json"
     }
 
-@pytest.mark.skip_browser("firefox")
-def test_website_login_standard_user(page: Page) -> None:
+@pytest.fixture(scope="function", autouse=True)
+def set_up_page(page: Page):
+    logger.info(msg="Open Browser")
     page.goto("https://www.saucedemo.com/inventory.html")
+    yield page
+    logger.info(msg="Close Browser")
+    page.close()
+
+# @pytest.mark.skip_browser("firefox")
+def test_website_login_standard_user(page: Page) -> None:
     logger.info(msg="Already Login successfully ")
     assert page.locator("//div[@class='app_logo']").is_visible()
     page.locator("//div[text()='Sauce Labs Backpack']/../../..//button").click()
 
 
-@pytest.mark.only_browser("firefox")
+# @pytest.mark.only_browser("firefox")
 def test_website_login_performance_glitch_user(page: Page) -> None:
-    page.goto("https://www.saucedemo.com/inventory.html")
     logger.info(msg="Already Login successfully ")
     assert page.locator("//div[@class='app_logo']").is_visible()
     page.locator("//div[@class='header_label']/div").click()
