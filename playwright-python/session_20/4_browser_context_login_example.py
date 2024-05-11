@@ -15,7 +15,7 @@ def browser_type_launch_args(browser_type_launch_args):
     return {
         **browser_type_launch_args,
         "headless": False,
-        "slow_mo": 500
+        "slow_mo": 5000
     }
 
 @pytest.fixture(scope="session")
