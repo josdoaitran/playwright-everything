@@ -44,8 +44,8 @@ def on_route_modify_return_json(route: Route):
     )
 def on_route_modify_rename(route: Route):
     response = route.fetch()
-    # I am Sorry Katalon :)
-    body = response.text().replace("Write tests faster. ", "Write tests faster.  - Supper Guideline")
+    # I am Sorry http://www.uitestingplayground.com/ :)
+    body = response.text().replace("UI Test Automation", "UI Test Automation  - Supper Guideline")
     route.fulfill(response=response, body=body)
 
 @pytest.fixture(scope="session")
@@ -60,41 +60,42 @@ def test_example_network_event(page: Page):
     page.on("request", on_request)
     page.on("response", on_response)
 
-    page.goto("https://katalon.com/")
+    page.goto("http://www.uitestingplayground.com/")
     page.screenshot(path="./logs/image.jpg", full_page=True)
     page.close()
 
 def test_example_network_event_filter(page: Page):
-    # page.route("https://d1h3p5fzmizjvp.cloudfront.net/themes/katalon_4/images/header/katalon_logo.svg", on_route_filter_by_request)
-    page.route("**/*.svg", on_route_filter_by_request)
+    # page.route("http://www.uitestingplayground.com/static/cube.png", on_route_filter_by_request)
+    page.route("**/*.png", on_route_filter_by_request)
 
-    page.goto("https://katalon.com/")
+    page.goto("http://www.uitestingplayground.com/")
     page.screenshot(path="./logs/image.jpg", full_page= True)
     page.close()
 
 def test_example_network_event_filter_by_type(page: Page):
     page.route("**", on_route_filter_by_type_image)
 
-    page.goto("https://katalon.com/")
+    page.goto("http://www.uitestingplayground.com/")
     page.screenshot(path="./logs/image.jpg", full_page= True)
     page.close()
 
 def test_example_network_event_modify_reponse_to_html(page: Page):
-    page.route("https://katalon.com/", on_route_modify_return_html)
+    page.route("http://www.uitestingplayground.com/", on_route_modify_return_html)
 
-    page.goto("https://katalon.com/")
+    page.goto("http://www.uitestingplayground.com/")
     page.screenshot(path="./logs/image.jpg", full_page= True)
     page.pause()
     page.close()
 
 def test_example_network_event_modify_reponse_to_json(page: Page):
-    page.route("https://katalon.com/", on_route_modify_return_json)
-    page.goto("https://katalon.com/")
+    page.route("http://www.uitestingplayground.com/", on_route_modify_return_json)
+    page.goto("http://www.uitestingplayground.com/")
     page.screenshot(path="./logs/image.jpg", full_page= True)
     page.pause()
     page.close()
 
 def test_example_network_event_replace_text(page: Page):
-    page.route("https://katalon.com/", on_route_modify_rename)
-    page.goto("https://katalon.com/")
+    page.route("http://www.uitestingplayground.com/", on_route_modify_rename)
+    page.goto("http://www.uitestingplayground.com/")
+    page.screenshot(path="./logs/image.jpg", full_page=True)
     page.pause()
