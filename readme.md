@@ -3,7 +3,7 @@ This repository is to collect all guides that I am posting and sharing in my per
 - Official link about Playwright: https://playwright.dev/
 - What Playwright is supporting to cover automation test: Web application. API testing.
 
-# Get started with Playwright:
+# Get started with Playwright
 - Installation: https://playwright.dev/docs/intro
 - Requirements:
   + Install `npm`: https://nodejs.org/en/download
