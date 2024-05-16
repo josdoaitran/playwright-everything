@@ -16,6 +16,13 @@ def on_route_to_filter_resource(route: Route):
 def skip_resource(page: Page):
     page.route("**", on_route_to_filter_resource)
 
+@pytest.fixture(scope="session")
+def browser_type_launch_args(browser_type_launch_args):
+    return {
+        **browser_type_launch_args,
+        "headless": False,
+        "slow_mo": 500
+    }
 def test_example_filter_all_iamge_css(page: Page):
     page.goto("https://bstackdemo.com/")
     page.pause()
