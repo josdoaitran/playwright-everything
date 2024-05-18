@@ -1,0 +1,5 @@
+import os
+
+GITHUB_USER = os.environ['GITHUB_USER']
+GITHUB_ACCESS_TOKEN = os.environ['GITHUB_ACCESS_TOKEN']
+GITHUB_REPOSITORY = os.environ['GITHUB_REPOSITORY']
