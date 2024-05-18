@@ -3,8 +3,11 @@ from playwright.sync_api import Page
 from session_27.pages.login_page import LoginPage
 from session_27.pages.inventory_page import InventoryPage
 
-# def test_example_tc(feature):
-#     assert feature == "FEATURE"
+# def test_example_tc(status_tc):
+#     assert status_tc == {
+#         "id": 123,
+#         "status": "Passed"
+#     }
 
 def test_login_tc_01(page: Page):
     login_page = LoginPage(page)

@@ -1,8 +1,11 @@
 import pytest
 
 # @pytest.fixture()
-# def feature():
-#     return "FEATURE"
+# def status_tc():
+#     return {
+#         "id": 123,
+#         "status": "Passed"
+#     }
 
 
 @pytest.fixture(scope="session")

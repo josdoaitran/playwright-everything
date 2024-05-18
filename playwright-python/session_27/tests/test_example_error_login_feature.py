@@ -2,8 +2,8 @@ import pytest
 from playwright.sync_api import Page
 from session_27.pages.login_page import LoginPage
 
-# def test_example_tc(feature):
-#     assert len(feature) == 7
+# def test_example_tc(status_tc):
+#     assert status_tc['id'] == 123
 
 wrong_credential = "Epic sadface: Username and password do not match any user in this service"
 lock_message = "Epic sadface: Sorry, this user has been locked out."
