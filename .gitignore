@@ -17,6 +17,8 @@ playwright-python/session_12/basic_screen_shot_record_video/test-results/*
 playwright-python/session_12/basic_screen_shot_record_video/test-results/
 playwright-python/session_12/test_more/screenshots/*
 playwright-python/session_12/test_more/report.html
+playwright-python/session_28/allure-report/
+playwright-python/session_28/allure-results/
 */reports/*
 */test-results/*
 playwright-python/reports/
