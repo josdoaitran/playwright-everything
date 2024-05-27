@@ -27,7 +27,6 @@ class LoginPage(Base):
         expect(self.password_input).to_be_visible()
 
     def login(self, username, password):
-        self.goto_base_url()
         self.username_input.fill(username)
         self.password_input.fill(password)
         self.login_button.click()
