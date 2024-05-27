@@ -7,4 +7,5 @@ instead of inputting test data into test scripts directly.
 
 # Data Types - Data-Driven
 - Static Data (Locators, Credentials, ...)
-- Dynamic Data: Using script to generate test data
+- Dynamic Data:
+  (Using script to generate test data, Parameterize)
